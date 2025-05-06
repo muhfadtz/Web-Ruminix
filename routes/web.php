@@ -10,6 +10,14 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/home', function () {
+    return view('home');
+});
+
 Route::get('/profile', function () {
     return view('profile');
+});
+
+Route::get('/cart', function () {
+    return view('cart');
 });
