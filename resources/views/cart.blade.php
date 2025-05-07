@@ -31,8 +31,9 @@
     </h2>
 
     <div class="space-y-6 mb-10">
+
       <!-- Cart Item -->
-      <div class="flex space-x-4">
+      <div class="cart-item flex space-x-4">
         <div class="w-20 h-20 bg-gray-200 rounded-md shrink-0"></div>
         <div class="flex flex-col justify-between flex-1">
           <div>
@@ -40,15 +41,19 @@
             <p class="text-sm text-gray-700 mb-3">Rp200.000</p>
           </div>
           <div class="flex items-center space-x-3">
-            <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-minus-circle"></i></button>
-            <span class="text-sm">1</span>
-            <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-plus-circle"></i></button>
+            <button class="decrease text-gray-600 hover:text-gray-800">
+              <i class="fas fa-minus-circle"></i>
+            </button>
+            <span class="quantity text-sm">1</span>
+            <button class="increase text-gray-600 hover:text-gray-800">
+              <i class="fas fa-plus-circle"></i>
+            </button>
           </div>
         </div>
       </div>
 
       <!-- Cart Item Duplicate -->
-      <div class="flex space-x-4">
+      <div class="cart-item flex space-x-4">
         <div class="w-20 h-20 bg-gray-200 rounded-md shrink-0"></div>
         <div class="flex flex-col justify-between flex-1">
           <div>
@@ -56,12 +61,17 @@
             <p class="text-sm text-gray-700 mb-3">Rp200.000</p>
           </div>
           <div class="flex items-center space-x-3">
-            <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-minus-circle"></i></button>
-            <span class="text-sm">1</span>
-            <button class="text-gray-600 hover:text-gray-800"><i class="fas fa-plus-circle"></i></button>
+            <button class="decrease text-gray-600 hover:text-gray-800">
+              <i class="fas fa-minus-circle"></i>
+            </button>
+            <span class="quantity text-sm">1</span>
+            <button class="increase text-gray-600 hover:text-gray-800">
+              <i class="fas fa-plus-circle"></i>
+            </button>
           </div>
         </div>
       </div>
+
     </div>
 
     <!-- Checkout Button -->
@@ -71,5 +81,26 @@
       </button>
     </div>
   </main>
+
+  <!-- SCRIPT: Quantity Handler -->
+  <script>
+    document.querySelectorAll('.cart-item').forEach(item => {
+      const increaseBtn = item.querySelector('.increase');
+      const decreaseBtn = item.querySelector('.decrease');
+      const quantitySpan = item.querySelector('.quantity');
+
+      increaseBtn.addEventListener('click', () => {
+        let qty = parseInt(quantitySpan.textContent);
+        quantitySpan.textContent = qty + 1;
+      });
+
+      decreaseBtn.addEventListener('click', () => {
+        let qty = parseInt(quantitySpan.textContent);
+        if (qty > 1) {
+          quantitySpan.textContent = qty - 1;
+        }
+      });
+    });
+  </script>
 </body>
 </html>

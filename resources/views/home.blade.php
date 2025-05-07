@@ -7,10 +7,10 @@
   @vite('resources/css/app.css')
   <script src="https://kit.fontawesome.com/9c2ca1d73f.js" crossorigin="anonymous"></script>
 </head>
-<body class="bg-white font-sans min-h-screen relative">
+<main class="bg-white font-sans min-h-screen relative">
 
   <!-- Floating Navbar -->
-  <nav class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[85%] bg-gray-100 rounded-md shadow px-6 py-3 flex items-center justify-between z-50">
+  <nav id="mainNavbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[85%] bg-gray-100 rounded-md shadow px-6 py-3 flex items-center justify-between z-50 transition-all duration-500 ease-in-out">
     <div class="font-bold text-sm md:text-base">Ruminix</div>
     <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
       <li><a href="#" class="hover:underline">Home</a></li>
@@ -24,21 +24,55 @@
     </div>
   </nav>
 
-  <!-- Main Content -->
-  <main class="pt-28 px-4 mx-auto">
-    <!-- Hero Section -->
-    <section class="bg-gray-100 rounded-lg p-6 mb-6 max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row items-center">
-        <div class="w-full md:w-1/2 mb-6 md:mb-0">
-          <h1 class="text-2xl md:text-3xl font-bold mb-3">Lorem ipsum!</h1>
-          <p class="text-sm text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin accumsan justo at libero porta.</p>
-          <button class="bg-black text-white px-4 py-2 rounded text-sm hover:bg-gray-800">Shop Now</button>
+  <section class="max-w-6xl mx-auto mb-6 mt-36">
+    <div class="swiper hero-swiper rounded-lg overflow-hidden">
+        <div class="swiper-wrapper flex">
+        
+            <!-- Slide 1 -->
+            <div class="swiper-slide shrink-0 w-full bg-gray-100 px-8 py-10 md:py-16">
+                <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Lorem ipsum!</h1>
+                    <p class="text-base md:text-lg text-gray-600 mb-6">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    <button class="bg-black text-white px-6 py-3 rounded text-base hover:bg-gray-800">
+                    Shop Now
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="bg-white h-48 w-full md:h-64 md:w-4/5 rounded-lg shadow-sm"></div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="swiper-slide shrink-0 w-full bg-gray-100 px-8 py-10 md:py-16">
+                <div class="flex flex-col md:flex-row items-center">
+                <div class="w-full md:w-1/2 mb-6 md:mb-0">
+                    <h1 class="text-3xl md:text-4xl font-bold mb-4">Ruminix Deals</h1>
+                    <p class="text-base md:text-lg text-gray-600 mb-6">
+                    Nikmati penawaran terbaik hari ini hanya di Ruminix Store.
+                    </p>
+                    <button class="bg-black text-white px-6 py-3 rounded text-base hover:bg-gray-800">
+                    Lihat Produk
+                    </button>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div class="bg-white h-48 w-full md:h-64 md:w-4/5 rounded-lg shadow-sm"></div>
+                </div>
+                </div>
+            </div>
+
+            </div>
+
+            <!-- Controls -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
-        <div class="w-full md:w-1/2 flex justify-center">
-          <div class="bg-white h-36 w-full md:h-48 md:w-4/5 rounded-lg shadow-sm"></div>
-        </div>
-      </div>
     </section>
+
 
     <!-- Features Section -->
     <section class="bg-gray-100 rounded-lg p-5 mb-10 max-w-6xl mx-auto">
@@ -74,143 +108,321 @@
       </div>
     </section>
 
-    <!-- Products Section -->
+        <!-- Products Section -->
     <section class="mb-10 max-w-6xl mx-auto">
-      <h2 class="text-lg font-semibold mb-5 text-center">Our Product</h2>
-      
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <!-- Product 1 -->
-        <div>
+        <h2 class="text-lg font-semibold mb-5 text-center">Our Product</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Product 1 -->
+          <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp200.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 2 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp150.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 3 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp180.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 4 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp225.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 5 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp190.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
-        
         <!-- Product 6 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp175.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 7 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp210.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
-            </div>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
           </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
         </div>
         
         <!-- Product 8 -->
-        <div>
+        <div class="p-2">
+          <a href="/product-detail" class="block hover:bg-gray-50 transition rounded-md p-2">
+          <!-- Image Placeholder -->
           <div class="aspect-square bg-gray-200 rounded-md mb-2"></div>
+
+          <!-- Product Title -->
           <h3 class="font-semibold text-xs md:text-sm">Lorem ipsum frigus</h3>
-          <p class="text-xs text-gray-700 mb-1">Rp195.000</p>
-          <div class="flex items-center justify-between mt-1">
-            <div class="flex space-x-1">
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="far fa-heart text-xs"></i>
-              </button>
-              <button class="text-gray-600 hover:text-gray-800">
-                <i class="fas fa-shopping-cart text-xs"></i>
-              </button>
+
+          <!-- Product Price -->
+          <p class="text-xs text-gray-700 mb-2">Rp200.000</p>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center space-x-2">
+
+            <!-- Wishlist Button -->
+            <div class="group flex items-center cursor-pointer">
+              <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                <i class="far fa-heart text-white text-base"></i>
+              </div>
+              <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                Wishlist
+              </span>
+          </div>
+
+              <!-- Add to Bag Button -->
+              <div class="group flex items-center cursor-pointer">
+                <div class="w-9 h-9 rounded-full bg-gray-400 flex items-center justify-center">
+                  <i class="fas fa-shopping-bag text-white text-base"></i>
+                </div>
+                <span class="ml-0 overflow-hidden max-w-0 group-hover:ml-2 group-hover:max-w-[100px] transition-all duration-300 text-sm text-gray-700 whitespace-nowrap opacity-0 group-hover:opacity-100">
+                  Add to Bag
+                </span>
+              </div>
+
+            </div>
+          </a>
+        </div>
+              
             </div>
           </div>
         </div>
@@ -254,3 +466,37 @@
   </footer>
 </body>
 </html>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  const swiper = new Swiper(".hero-swiper", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
+<script>
+  const navbar = document.getElementById('mainNavbar');
+  let isFull = false;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+
+    if (scrollY > 30 && !isFull) {
+      isFull = true;
+      navbar.classList.add('full-navbar');
+    } else if (scrollY <= 30 && isFull) {
+      isFull = false;
+      navbar.classList.remove('full-navbar');
+    }
+  });
+</script>

@@ -31,3 +31,11 @@ Route::get('/signup', function () {
 Route::get('/', function () {
     return view('home');
 });
+use App\Http\Controllers\ProductController;
+
+Route::get('/', [ProductController::class, 'index'])->name('home');
+
+
+Route::get('/product-detail', function () {
+    return view('detail');
+});
