@@ -4,30 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home - Ruminix</title>
-  @vite('resources/css/app.css')
+  @vite(['resources/css/app.css', 'resources/js/app.js'])
   <script src="https://kit.fontawesome.com/9c2ca1d73f.js" crossorigin="anonymous"></script>
 </head>
 <main class="bg-white font-sans min-h-screen relative">
 
-  <!-- Floating Navbar -->
-  <nav id="mainNavbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[85%] bg-gray-100 rounded-md shadow px-6 py-3 flex items-center justify-between z-50 transition-all duration-500 ease-in-out">
-    <div class="font-bold text-sm md:text-base">Ruminix</div>
-    <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
-      <li><a href="#" class="hover:underline">Home</a></li>
-      <li><a href="#" class="hover:underline">Product</a></li>
-      <li><a href="#" class="hover:underline">Shop</a></li>
-      <li><a href="#" class="hover:underline">Contact</a></li>
-    </ul>
-    <div class="flex space-x-4 text-gray-700">
-      <a href="/cart"><i class="fas fa-shopping-cart text-sm md:text-base"></i></a>
-      <a href="/profile"><i class="fas fa-user text-sm md:text-base"></i></a>
-    </div>
-  </nav>
+<!-- Floating Navbar -->
+<nav id="mainNavbar" class="fixed top-4 left-1/2 transform -translate-x-1/2 w-[90%] md:w-[85%] bg-gray-100 rounded-md shadow px-6 py-3 flex items-center justify-between z-50 transition-all duration-300 ease-in-out bg-gray py-4 shadow-sm"">
+
+  <!-- Logo -->
+  <div class="font-bold text-base">Ruminix</div>
+
+  <!-- Menu -->
+  <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
+    <li><a href="#" class="hover:underline">Home</a></li>
+    <li><a href="#" class="hover:underline">Product</a></li>
+    <li><a href="#" class="hover:underline">Shop</a></li>
+    <li><a href="#" class="hover:underline">Contact</a></li>
+  </ul>
+
+  <!-- Icons -->
+  <div class="flex space-x-4 items-center text-gray-700">
+    <a href="/cart"><i class="fas fa-shopping-cart"></i></a>
+    <button data-toggle="search" class="focus:outline-none">
+      <i class="fas fa-search"></i>
+    </button>
+
+    <a href="/profile"><i class="fas fa-user"></i></a>
+  </div>
+</nav>
+
+<!-- Hidden Search Bar -->
+<div id="searchBar" class="fixed top-[70px] left-1/2 transform -translate-x-1/2 w-[90%] md:w-[85%] bg-white shadow px-4 py-2 rounded-md hidden z-40 transition-all duration-300 border rounded-md">
+  <div class="relative bg-white">
+    <span class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+      <i class="fas fa-search"></i>
+    </span>
+    <input 
+      type="text" 
+      placeholder="Search.." 
+      class="w-full pl-10 pr-4 py-2 focus:outline-none"
+    />
+  </div>
+</div>
+
+
+
+
 
   <section class="max-w-6xl mx-auto mb-6 mt-36">
     <div class="swiper hero-swiper rounded-lg overflow-hidden">
         <div class="swiper-wrapper flex">
-        
+            
             <!-- Slide 1 -->
             <div class="swiper-slide shrink-0 w-full bg-gray-100 px-8 py-10 md:py-16">
                 <div class="flex flex-col md:flex-row items-center">
@@ -68,8 +96,7 @@
 
             <!-- Controls -->
             <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+         
         </div>
     </section>
 
@@ -466,37 +493,3 @@
   </footer>
 </body>
 </html>
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  const swiper = new Swiper(".hero-swiper", {
-    loop: true,
-    autoplay: {
-      delay: 5000,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-  });
-</script>
-<script>
-  const navbar = document.getElementById('mainNavbar');
-  let isFull = false;
-
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-
-    if (scrollY > 30 && !isFull) {
-      isFull = true;
-      navbar.classList.add('full-navbar');
-    } else if (scrollY <= 30 && isFull) {
-      isFull = false;
-      navbar.classList.remove('full-navbar');
-    }
-  });
-</script>
