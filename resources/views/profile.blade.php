@@ -17,7 +17,7 @@
 
     <!-- Menu -->
     <ul class="hidden md:flex space-x-6 text-sm text-gray-700">
-        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="/home" class="hover:underline">Home</a></li>
         <li><a href="#" class="hover:underline">Product</a></li>
         <li><a href="#" class="hover:underline">Shop</a></li>
         <li><a href="#" class="hover:underline">Contact</a></li>
@@ -51,10 +51,10 @@
     {{-- Main Content --}}
     <main id="mainContent" class="pt-28 px-4 flex flex-col items-center text-center">
         <div class="w-full max-w-xs text-left text-gray-800 text-sm mb-3">
-            <i class="fas fa-user-circle mr-2"></i> Profile
+            <i class="fas fa-user-circle mr-2 mb-12"></i> Profile
         </div>
 
-        <h1 class="text-lg font-semibold mb-6">{{ Auth::user()->name }}</h1>
+        <h1 class="text-lg font-semibold mb-12">{{ Auth::user()->name }}</h1>
 
 
         <div class="w-full max-w-xs space-y-3">
